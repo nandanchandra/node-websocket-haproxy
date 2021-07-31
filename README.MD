@@ -8,6 +8,9 @@
 
 1--> open browser (chrome) |--> inspect |--> console
 
-2--> ws = new WebSocket("ws://localhost:8080");
-     ws.onmessage = message => console.log(`Received: ${message.data}`);
-     ws.send("pseudo Chatapp")
+<!-- Open mulinumber of browser -->
+2a--> ws = new WebSocket("ws://localhost:8080");
+
+2b--> ws.onmessage = message => console.log(`Received: ${message.data}`);
+     
+2c--> ws.send("pseudo Chatapp")
