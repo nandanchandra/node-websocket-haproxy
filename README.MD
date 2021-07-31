@@ -8,7 +8,7 @@
 
 1--> open browser (chrome) |--> inspect |--> console
 
-<!-- Open mulinumber of browser -->
+<!-- Open multi number of browser -->
 2a--> ws = new WebSocket("ws://localhost:8080");
 
 2b--> ws.onmessage = message => console.log(`Received: ${message.data}`);
