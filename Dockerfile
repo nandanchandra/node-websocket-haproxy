@@ -1,11 +1,5 @@
-FROM node:alpine
-
-WORKDIR /usr/nodeapp
-
-COPY ./package.json ./
-
+FROM node:13
+WORKDIR /home/node/chatapp
+COPY . /home/node/chatapp
 RUN npm install
-
-COPY ./ ./
-
-CMD ["npm", "start"]
+CMD npm run chatapp

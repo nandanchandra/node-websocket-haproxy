@@ -2,6 +2,9 @@ import http from "http";
 import ws from "websocket"
 import redis from "redis";
 
+const APPID = process.env.APPID;
+
+let connections = [];
 
 const Server = ws.server
 
@@ -43,7 +46,7 @@ subscriber.subscribe("Groupchat");
 const httpserver = http.createServer()
 
 // Get request to initiate Webscoket
-const websocket = new WebSocketServer({
+const websocket = new Server({
     "httpServer": httpserver
 })
 
