@@ -51,4 +51,19 @@ const websocket = new WebSocketServer({
 httpserver.listen(8080, () => console.log("Listening on port 8080"))
 
 
+// Three Way Handshaking Webscoket
+websocket.on("request", request=> {
 
+    const con = request.accept(null, request.origin)
+    
+    con.on("open", () => console.log("opened"))
+    con.on("close", () => console.log("CLOSED!!!"))
+    con.on("message", message => {
+        //publish the message to redis
+        console.log(`${APPID} Received message ${message.utf8Data}`)
+        publisher.publish("Groupchat", message.utf8Data)
+    })
+
+    setTimeout(() => con.send(`Connected successfully to server ${APPID}`), 5000)
+    connections.push(con)
+})
